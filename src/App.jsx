@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/NavBar.jsx";
 import Header from './component/Header.jsx';
 import Footer from "./component/Footer.jsx";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./views/Home.jsx";
 import Register from "./views/Register.jsx";
 import Login from "./views/Login.jsx";
@@ -32,7 +32,9 @@ function App() {
 
         <Route path="/Pizza/P001" element={<P001></P001>} />
 
-        <Route path="*" element={<NotFound></NotFound>} />
+        <Route path="/404" element={<NotFound></NotFound>} />
+        <Route path="*" element={<Navigate to="/404" />} />
+
       </Routes>
       <Footer></Footer>
     </>
